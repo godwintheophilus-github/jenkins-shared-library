@@ -39,7 +39,7 @@ def call(body) {
                             helper.checkWhoAmI(env: params.env, 
                             branch: params.branch)
                             sh "whoami"
-                            echo "${env.WORKSPACE}"
+                            // echo "${env.WORKSPACE}"
                         }
                     }
                     // post {
