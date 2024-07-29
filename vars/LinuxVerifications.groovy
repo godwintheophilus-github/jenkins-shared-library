@@ -29,9 +29,9 @@ def call(body) {
             }
             stages {
                 stage('Build') {
-                    environment {
-                        BRANCH_NAME = "${params.branch}"
-                    }
+                    // environment {
+                    //     BRANCH_NAME = "${params.branch}"
+                    // }
                     steps {
                         echo 'Building..'
                         script {
