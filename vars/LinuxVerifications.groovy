@@ -29,12 +29,13 @@ def call(body) {
             }
             stages {
                 stage('Build') {
-                    environment {
-                        BRANCH_NAME = "${params.branch}"
-                    }
+                    
                     steps {
                         echo 'Building..'
                         script {
+                            environment {
+                                BRANCH_NAME = "${params.branch}"
+                            }
                             helper.checkWhoAmI(env: params.env, 
                             branch: params.branch)
                             sh "whoami"
