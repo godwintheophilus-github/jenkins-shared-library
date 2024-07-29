@@ -4,7 +4,7 @@ import gt.io.LinuxVerificationsHelper
 
 def call(body) {
 
-    def helper = LinuxVerificationsHelper(this)
+    def helper = new LinuxVerificationsHelper(this)
     def pipelineParams = [:]
     body.resolveStrategy = Closure.DELEGATE_FIRST
     body.delegate = pipelineParams
