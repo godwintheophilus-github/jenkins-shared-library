@@ -9,13 +9,13 @@ def call(body) {
     body.resolveStrategy = Closure.DELEGATE_FIRST
     body.delegate = pipelineParams
     body()
-    String environment
+    String environments
     if((pipelineParams.env == 'dev') || (pipelineParams.env == 'qa') || (pipelineParams.env == 'prod') || (pipelineParams.env == 'stage')) {
-        environment = pipelineParams.env
+        environments = pipelineParams.env
     } else {
-        environment = 'dev'
+        environments = 'dev'
     }
-    if(environment == 'dev') {
+    if(environments == 'dev') {
         pipeline {
             agent any
             options {
@@ -29,9 +29,9 @@ def call(body) {
             }
             stages {
                 stage('Build') {
-                    // environment {
-                    //     BRANCH_NAME = "${params.branch}"
-                    // }
+                    environment {
+                        BRANCH_NAME = "${params.branch}"
+                    }
                     steps {
                         echo 'Building..'
                         script {
